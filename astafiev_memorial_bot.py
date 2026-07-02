@@ -613,7 +613,9 @@ async def admin_stats(callback: types.CallbackQuery):
 # ========== ЗАПУСК ==========
 async def main():
     print("🚀 Запуск бота...")
-    
+
+    await bot.delete_webhook()
+    print("✅ Webhook удалён")
     # Проверяем подключение к Supabase
     try:
         supabase.table("admins").select("user_id").limit(1).execute()
